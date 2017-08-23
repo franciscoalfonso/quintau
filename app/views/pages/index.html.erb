@@ -1,2 +1,81 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if !user_signed_in?%>
+
+<%else%>
+    <style>
+        body{
+            background:url("/778084.jpg") no-repeat center fixed;
+            -webkit-background-size: cover;
+            background-size:cover;
+        
+        }
+        h1{
+            color:white;
+            font-weight:bold;
+        }
+        .titulo{
+            margin-right:15%;
+            margin-left:15%;
+        }
+        .text{
+            font-weight:300;
+            color:white;
+            font-size:15%;
+        }
+        .footer{
+            text-align:center;
+            color:white;
+            margin-top:30%;
+            font-size:75%;
+        }
+        .log-in{
+            
+           
+            width:300px;
+            height:150px;
+            font-size:75%;
+            margin-top:7.5%;
+        }
+        .sign-up{
+             margin-top:7.5%;
+            width:300px;
+            height:250px;
+            
+        }
+    </style>
+    <div class="container titulo">
+       <div class="row">
+       <div class="col-lg-6">
+        <h1>Welcome to my app</h1>
+        <p class="text">
+            connect with your friends, share your adventures 
+        </p>
+        </div>
+        <div class="col-lg-6">
+        
+            <div class="card log-in">
+                    <div class="card-block ">
+                        login
+                    </div>
+            </div>
+            
+        
+        </div>
+        </div>  
+           <div class="row">
+              <div class="col-lg-6 offset-lg-6">
+               <div class="card sign-up">
+                    <div class="card-block ">
+                       sign up
+                    </div>
+              </div>        
+            </div>
+           </div>
+        <div class="col-sm-12">   
+        <p class="footer">
+            About Help Blog Status Temrs privaci Cookies
+        </p>
+           </div>
+        
+    </div>
+
+<%end%>

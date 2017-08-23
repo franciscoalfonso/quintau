@@ -1,0 +1,54 @@
+
+ <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+ <div class="container-fluid container">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" ><%= image_tag 'images.png', class:"logo"%> mini face lite</a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="/home"> <i class="fa fa-home" aria-hidden="true"></i> Inicio <span class="sr-only">(current)</span></a>
+       
+            
+      
+      </li>
+       <%if current_user.role=="admin"%>
+      <li class="nav-item ">
+          <a class="nav-link" href="/lista"> <i class="fa fa-users" aria-hidden="true"></i> Usuarios Registrados<span class="sr-only">(current)</span></a>
+      </li>
+       <%end%>
+    </ul>
+
+   <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="" id="dato">
+      <a class="btn btn-outline-success my-2 my-sm-0" onclick="myFunction()" type="submit" href="" id="link">Buscar</a>
+    </form>
+   
+   <script type="text/javascript">
+      function myFunction(){
+          var dato=document.getElementById("dato").value;
+          dato="/user/"+dato;
+          alert(dato);
+          document.getElementById("link").href=dato; 
+          
+      };
+   </script>
+    <ul class="nav nav-pills">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.username%></a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/user/<%=current_user.username%>"><i class="fa fa-user" aria-hidden="true"></i>   Perfil</a>
+        
+      <a class="dropdown-item"><%= link_to ' Editar perfil', edit_user_registration_path, class:"fa fa-pencil-square-o center" %></a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" ><%= link_to 'cerrar sesion', destroy_user_session_path, method: :delete, class:"fa fa-sign-out" %></a>
+    </div>
+    
+  </li>
+  
+  </ul>
+  </div>
+  </div>
+</nav>

@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
     
-  root to:"pages#index"
+  root to:"pages#home"
   
 
+     resources :comments
+    resources :photos 
+    
   get 'home' => 'pages#home' 
-
-  get 'profile' => 'pages#profile'
-
+  get 'index' => 'pages#index' 
+    
+  get '/user/:id' => 'pages#profile'
+    
+  get '/user' => 'pages#home'  
+   
+  get '/lista' =>'pages#lista'   
+    
   get 'explore' => 'pages#explore'
 
   devise_for :users, controllers:{

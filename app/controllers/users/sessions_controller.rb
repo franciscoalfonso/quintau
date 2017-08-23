@@ -1,8 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
    def index
-        @users=User.all
-   end     
+        redirect_to home_path
+    end     
         
         
   # GET /resource/sign_in

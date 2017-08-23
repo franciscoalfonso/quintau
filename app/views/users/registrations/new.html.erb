@@ -1,34 +1,101 @@
-<h2>Sign up 2</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%if(!user_signed_in?)%>
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+ <style>
+        body{
+            background:url("/778084.jpg") no-repeat center fixed;
+            -webkit-background-size: cover;
+            background-size:cover;
+        
+        }
+        h1{
+            color:white;
+            font-weight:bold;
+        }
+        .titulo{
+            margin-right:15%;
+            margin-left:15%;
+        }
+        .text{
+            font-weight:300;
+            color:white;
+            font-size:15%;
+        }
+        .footer{
+            text-align:center;
+            color:white;
+            margin-top:30%;
+            font-size:75%;
+        }
+        .log-in{
+            
+           
+            width:300px;
+            height:470px;
+            font-size:75%;
+            margin-top:7.5%;
+        }
+    </style>
+    <div class="container titulo">
+       <div class="row">
+       <div class="col-lg-6">
+        <h1>Welcome2 to my app</h1>
+          <%= image_tag 'if_flat-iphone_374826.svg', class:"svg"%>
+        </div>
+        <div class="col-lg-6">
+            
+            <form>
+                <div class="card log-in ">
+                    <div class="card-block ">
+                            <div class="field form-group">                     
+                                <%= f.label :username %><br />
+                                <%= f.text_field :username , autofocus: true, class:"form-control"%>
+                            </div>
+                            
+                            <div class="field form-group">
+                                <%= f.label :email %><br />
+                                <%= f.email_field :email , class:"form-control"%>
+                            </div>
+                            
+                            <div class="field form-group">
+                                    <%= f.label :password %>
+                                <% if @minimum_password_length %>
+                                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                <% end %><br />
+                                    <%= f.password_field :password, autocomplete: "off" , class:"form-control"%>
+                            </div>
+                            
+                            <div class="field form-group">
+                                <%= f.label :password_confirmation %><br />
+                                <%= f.password_field :password_confirmation, autocomplete: "off" , class:"form-control"%>
+                            </div>
+                            
+                            <div class="field form-group">
+                                <%= f.label :role %><br />
+                                <%= f.select :role, ['admin','user'],class:"form-control" %>
+                            </div>
+                            
+                            <div class="actions">
+                                <%= f.submit "Sign up", class:"btn btn-primary" %>
+                            </div>
+                            <%= render "users/shared/links" %>
+                <% end %>
 
- <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-      
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                            
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+                    </div>
+                </div>
+            </form>
+        
+        </div>
+        </div>  
+        <div class="col-sm-12">   
+        <p class="footer">
+            About Help Blog Status Temrs privaci Cookies
+        </p>
+           </div>
+        
+    </div>
+<%else%>
+    <%redirect_to home_path%>    
+<%end%>

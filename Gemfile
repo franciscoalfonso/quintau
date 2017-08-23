@@ -28,20 +28,30 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'jquery-rails'
+
+
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
+#Sgem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "font-awesome-rails"
+gem 'record_tag_helper', '~> 1.0'
 
+#gem 'bcrypt', '~> 3.1.11'
+
+gem 'carrierwave', '~> 1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'awesome_print'
 end
 
 group :development do

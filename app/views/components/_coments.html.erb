@@ -1,0 +1,24 @@
+<%= div_for @coments do |c|%>
+
+<!--<ul class="list-group">
+  <li class="list-group-item justify-content-between">
+    
+    <span class="badge badge-default badge-pill"></span>
+  </li>
+</ul>
+-->
+<%if(c.photo_id==p.id)%>
+<div class="list-group">
+
+  
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%=c.name%></h5>
+      <small class="text-muted"><%=  time_ago_in_words(c.created_at)%></small>
+    </div>
+    <p class="mb-1"><%=c.content%></p>
+    
+  </a>
+</div>
+<%end%> 
+<%end%>  

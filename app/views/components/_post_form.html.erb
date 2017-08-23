@@ -1,0 +1,24 @@
+<div class="card  post-card">
+                <div class="card-block">
+                  <div class="row">
+                   <div class="col-lg-2">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-lg-10">
+                        <%= form_for(@new) do |f| %>
+                          <div class="field " style="margin-left:10px">
+                            
+                            <%= f.file_field :img, class:"form-control", autofocus: true,id:"input",:required => true %>
+                          </div>
+  
+                          <div class="actions">
+                                <span type="button" style="float:right; margin-top:3px;"><%= f.submit "Agregar imagen" , class:"btn btn-primary buton", type:"submit" %></span>
+                          </div>
+                        <% end %>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+ 
+

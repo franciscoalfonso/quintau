@@ -1,0 +1,29 @@
+
+
+<div class="container">
+    <table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th></th>
+      <th>Nombre de Usuario</th>
+      <th>Email</th>
+      <th>Crear at</th>
+      <th>last_sign_in_at</th>
+    </tr>
+  </thead>
+      <% @users.each do |f|%>
+  <tbody>
+    <tr>
+     
+      <th scope="row">1</th>
+      <td><%= f.username%></td>
+      <td><%= f.email%></td>
+      <td><%= f.created_at%></td>
+      <td><%= f.last_sign_in_at%></td>
+     
+    </tr>
+  </tbody>
+  <%end%>
+</table>
+</div>
+

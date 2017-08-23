@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719184611) do
+ActiveRecord::Schema.define(version: 20170809134521) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "photo_id"
+    t.text "content"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_comments_on_photo_id"
+  end
 
   create_table "images", force: :cascade do |t|
     t.string "img"
@@ -18,6 +27,46 @@ ActiveRecord::Schema.define(version: 20170719184611) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id_id"], name: "index_images_on_user_id_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "img"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
+  create_table "pooosts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pooosts_on_user_id"
+  end
+
+  create_table "poosts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id_id"], name: "index_poosts_on_user_id_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relacions", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relacions_on_followed_id"
+    t.index ["follower_id"], name: "index_relacions_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,6 +83,7 @@ ActiveRecord::Schema.define(version: 20170719184611) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

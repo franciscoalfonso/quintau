@@ -1,26 +1,84 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+     <style>
+        body{
+            background:url("/778084.jpg") no-repeat center fixed;
+            -webkit-background-size: cover;
+            background-size:cover;
+        }
+        h1{
+            color:white;
+            font-weight:bold;
+        }
+        .titulo{
+            margin-right:15%;
+            margin-left:15%;
+        }
+        .text{
+            font-weight:300;
+            color:white;
+            font-size:15%;
+        }
+        .footer{
+            text-align:center;
+            color:white;
+            margin-top:30%;
+            font-size:75%;
+        }
+        .log-in{
+            
+           
+            width:300px;
+            height:350px;
+            font-size:75%;
+            margin-top:7.5%;
+        }
+    </style>
+    <div class="container titulo">
+       <div class="row">
+       <div class="col-lg-6">
+        <h1>Bienvenido</h1>
+        <%= image_tag 'if_SDKs_copy_Ruby_259264.svg', class:"svg"%>
+        </div>
+        <div class="col-lg-6">
+            
+            <form>
+                <div class="card log-in ">
+                    <div class="card-block ">
+                          <div class="field form-group">
+                            <%= f.label :email , class:"text-capitalize"%><br />
+                            <%= f.email_field :email, autofocus: true , class:"form-control"%>
+                          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                    <div class="field form-group">
+                            <%= f.label :password , class:"text-capitalize"%><br />
+                            <%= f.password_field :password, autocomplete: "off" ,class:"form-control"%>
+                    </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                    <% if devise_mapping.rememberable? -%>
+                            <div class="field form-group">
+                              <%= f.check_box :remember_me %>
+                              <%= f.label :remember_me %>
+                            </div>
+                    <% end -%>
+
+                            <div class="actions">
+                                <%= f.submit "Log in" , class:"btn btn-primary" %>
+                            </div>
+                            <%= render "users/shared/links" %>
+                    <% end %>
+
+                    </div>
+                </div>
+            </form>
+        
+        </div>
+        </div>  
+        <div class="col-sm-12">   
+        <p class="footer">
+            About Help Blog Status Temrs privaci Cookies
+        </p>
+           </div>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+
